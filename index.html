@@ -841,11 +841,17 @@ function spawnHeart(){
 let heartClock = 0, videoVisible = false;
 new IntersectionObserver(e => videoVisible = e[0].isIntersecting, {threshold:.2}).observe(el('s-video'));
 
-const LOOP = 9000; // sem vídeo: ciclo de 9s
+const LOOP = 9000; // ciclo da barra de progresso
+const STATS_DUR = 7000; // duração da contagem dos números
+let statsStart = null, statsDone = false;
 function frame(now){
   if(videoVisible){
     const p = (now % LOOP) / LOOP;
-    const e = ease(Math.min(p*1.25, 1)); // métricas completam um pouco antes do fim do ciclo
+    if(statsStart === null) statsStart = now;
+    // números contam uma única vez e depois ficam parados; só os corações continuam
+    if(!statsDone){
+    const e = ease(Math.min((now - statsStart) / STATS_DUR, 1));
+    if(e >= 1) statsDone = true;
     el('vViews').textContent  = nf.format(Math.round(V.views * e));
     el('vReach').textContent  = nf.format(Math.round(V.espectadores * e));
     el('vPer').textContent    = Math.round(V.views / V.espectadores * e);
@@ -856,6 +862,7 @@ function frame(now){
     el('vShare').textContent  = fmt(V.compartilhamentos * e, 'k');
     el('vRing').style.strokeDashoffset = 100 - curtiu * e;
     engRows.forEach((r,i) => { const v = ENG[i][1]; r.querySelector('b').textContent = fmt(v * e, 'k'); r.querySelector('i').style.setProperty('--w', engW(v) * e + '%'); });
+    }
     el('vProg').style.width = (p*100) + '%';
     if(now - heartClock > 520){ heartClock = now; spawnHeart(); }
   }
