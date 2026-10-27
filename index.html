@@ -233,10 +233,13 @@ em{font-style:italic}
 @keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.18) translate(-3%,-2%)}}
 .no-video .ph{display:block}
 .no-video video{display:none}
-.ph-cta{position:absolute;left:14px;right:14px;bottom:86px;text-align:center;color:#fff;z-index:3}
-.ph-cta label{display:inline-block;margin-top:8px;background:rgba(255,255,255,.92);color:var(--navy);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:9px 16px;border-radius:999px;cursor:pointer}
-.ph-cta p{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
-.ph-cta input{display:none}
+.eng{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.eng .r{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:.74rem;color:var(--muted)}
+.eng .r b{font-family:var(--serif);font-weight:500;font-size:.98rem;color:var(--navy)}
+.eng .r i{grid-column:1/-1;height:5px;border-radius:9px;background:var(--off-2);overflow:hidden}
+.eng .r i::after{content:"";display:block;height:100%;width:var(--w,0%);background:var(--navy);border-radius:9px}
+.eng .r:nth-child(even) i::after{background:var(--sand)}
+.fcard .sub b{color:var(--navy);font-weight:600}
 .ui{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.25) 0,transparent 18%,transparent 62%,rgba(0,0,0,.55) 100%)}
 .ui-side{position:absolute;right:12px;bottom:110px;display:flex;flex-direction:column;gap:18px;color:#fff;align-items:center;font-size:.62rem;font-weight:600}
 .ui-side svg{width:26px;height:26px}
@@ -502,41 +505,34 @@ em{font-style:italic}
 <!-- 4. VÍDEO + MÉTRICAS -->
 <div class="band alt" aria-hidden="true"><div class="band-strip of"><div class="band-track" data-speed="-1"></div></div></div>
 
-<section class="slide white" id="s-video" data-title="Em movimento">
+<section class="slide white" id="s-video" data-title="Reels campeão">
   <div class="ghost-num">04</div>
   <div class="wrap">
-    <div class="eyebrow rv">Em movimento</div>
+    <div class="eyebrow rv">Reels campeão</div>
     <h2 class="h2 rv d1" style="max-width:760px">Cada Reels é uma <em>porta de entrada</em> para novos públicos.</h2>
     <div class="reel-stage">
       <div class="fcol l">
         <div class="fcard rv d2">
-          <h5>Visualizações · 30 dias</h5>
+          <h5>Visualizações</h5>
           <div class="big" id="vViews">0</div>
-          <svg class="spark" viewBox="0 0 200 44" preserveAspectRatio="none"><path class="area" id="vArea" d=""/><path id="vLine" d=""/></svg>
+          <div class="sub">em um único Reels</div>
+          <div class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
         </div>
         <div class="fcard rv d3">
           <h5>Espectadores únicos</h5>
           <div class="big" id="vReach">0</div>
-          <div class="sub">pessoas alcançadas em 30 dias</div>
+          <div class="sub">pessoas diferentes assistiram, em média <b id="vPer">0</b> vezes cada</div>
         </div>
       </div>
 
       <div class="phone rv d2">
         <div class="screen no-video" id="screen">
-          <!-- VÍDEO: coloque o arquivo em midia/video.mp4 (vertical 9:16). Ele toca sem som e em loop. -->
-          <video id="reel" src="midia/video.mp4" muted autoplay loop playsinline preload="auto"></video>
-          <div class="ph">
-            <img src="midia/amanda-11.jpg" alt="">
-            <div class="ph-cta">
-              <p>Espaço para vídeo · 9:16</p>
-              <label>Escolher vídeo<input type="file" accept="video/*" id="pick"></label>
-            </div>
-          </div>
+          <div class="ph"><img src="midia/amanda-11.jpg" alt="Amanda Freire"></div>
           <div class="ui">
             <div class="ui-side">
               <div><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.5 3 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3C14.2 6.1 15.6 5 17.6 5 21 5 23.1 8.5 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg><div id="vLikes">0</div></div>
-              <div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div>
-              <div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 3 11 14M22 3l-7 19-4-8-8-4 19-7z"/></svg></div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><div id="vComm">0</div></div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 3 11 14M22 3l-7 19-4-8-8-4 19-7z"/></svg><div id="vShare">0</div></div>
             </div>
             <div class="ui-cap"><b>Amanda Freire</b>humor, rotina e a vida real de mãe empreendedora ✦</div>
             <div class="ui-progress"><i id="vProg"></i></div>
@@ -547,21 +543,21 @@ em{font-style:italic}
 
       <div class="fcol r">
         <div class="fcard rv d3">
-          <h5>Alcance fora da base</h5>
-          <div class="mini-ring">
-            <svg viewBox="0 0 42 42"><circle class="t" cx="21" cy="21" r="16" fill="none" stroke-width="5"/><circle class="v" id="vRing" cx="21" cy="21" r="16" fill="none" stroke-width="5" pathLength="100" stroke-dashoffset="100"/></svg>
-            <div><div class="big" id="vPct">0%</div><div class="sub">das views vêm de não seguidores</div></div>
-          </div>
+          <h5>Interações</h5>
+          <div class="eng" id="vEng"></div>
         </div>
         <div class="fcard rv d4">
-          <h5>Formato campeão</h5>
-          <div class="live">Reels</div>
-          <div class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <h5>Quem assistiu, curtiu</h5>
+          <div class="mini-ring">
+            <svg viewBox="0 0 42 42"><circle class="t" cx="21" cy="21" r="16" fill="none" stroke-width="5"/><circle class="v" id="vRing" cx="21" cy="21" r="16" fill="none" stroke-width="5" pathLength="100" stroke-dashoffset="100"/></svg>
+            <div><div class="big" id="vPct">0%</div><div class="sub">dos espectadores curtiram</div></div>
+          </div>
         </div>
         <div class="fcard rv d5">
           <h5>Novos seguidores</h5>
           <div class="big" id="vGrowth">+0</div>
-          <span class="up">▲ em 30 dias</span>
+          <span class="up">▲ com este Reels</span>
+          <div class="sub">Tempo médio de visualização: <b>9 s</b></div>
         </div>
       </div>
     </div>
@@ -712,7 +708,9 @@ const CONFIG = {
     cidades: [ ['Teresina',7.0], ['Pedreiras (PI)',6.2], ['Timon',4.4], ['Cingapura',2.4], ['São Paulo',1.7] ],
     idiomas: [ ['Português',60.3], ['Inglês',26.8], ['Tcheco',3.4], ['Francês',2.7], ['Árabe',1.4] ]
   },
-  video: { views:2555093, alcance:1716687, naoSeguidores:94.0, crescimento:3340, interacoes:432019 },
+  // Insights do Reels campeão
+  campeao: { views:9259264, espectadores:1314155, seguidores:1247, tempoMedio:9,
+    curtidas:548000, comentarios:3200, reposts:5200, compartilhamentos:115000, salvamentos:5800 },
   // visualizações por dia, em mil (traçadas a partir do gráfico dos Insights; picos de 791 mil e 440 mil)
   diario: [5,5,5,5,5,5,5,5,10,80,791,60,90,130,55,50,75,60,55,50,45,55,25,45,40,70,100,150,440,60]
 };
@@ -824,28 +822,14 @@ slides.forEach(s => io.observe(s));
 setTimeout(() => slides.forEach(s => s.classList.add('in')), 2500);
 
 /* ---------- vídeo + métricas sincronizadas ---------- */
-const V = CONFIG.video;
-const video = document.getElementById('reel');
-const screen = document.getElementById('screen');
+const V = CONFIG.campeao;
 const el = id => document.getElementById(id);
-let hasVideo = false, lastP = 0;
-
-video.addEventListener('loadeddata', () => { hasVideo = true; screen.classList.remove('no-video'); video.play().catch(()=>{}); });
-video.addEventListener('error', () => { hasVideo = false; screen.classList.add('no-video'); });
-el('pick').addEventListener('change', e => {
-  const f = e.target.files[0]; if(!f) return;
-  video.src = URL.createObjectURL(f); video.muted = true; video.load();
-});
-
-// sparkline: visualizações diárias reais (traçadas dos Insights)
-const pts = CONFIG.diario.map(v => v / Math.max(...CONFIG.diario));
-function spark(p){
-  const n = Math.max(2, Math.round(p*29)+1);
-  const s = pts.slice(0,n).map((y,i) => [i/29*200, 42 - Math.max(0,Math.min(1,y))*38]);
-  const line = 'M' + s.map(q => q.map(v=>v.toFixed(1)).join(',')).join(' L');
-  el('vLine').setAttribute('d', line);
-  el('vArea').setAttribute('d', line + ` L${s[s.length-1][0].toFixed(1)},44 L0,44 Z`);
-}
+const curtiu = V.curtidas / V.espectadores * 100;
+const ENG = [['Curtidas',V.curtidas],['Compartilhamentos',V.compartilhamentos],['Salvamentos',V.salvamentos],['Reposts',V.reposts],['Comentários',V.comentarios]];
+el('vEng').innerHTML = ENG.map(([l]) => `<div class="r"><span>${l}</span><b>0</b><i></i></div>`).join('');
+const engRows = [...el('vEng').children];
+// curtidas são muito maiores que o resto: escala de raiz para as barras menores ficarem visíveis
+const engW = v => Math.max(4, Math.sqrt(v / V.curtidas) * 100);
 function spawnHeart(){
   const h = document.createElement('span');
   h.className = 'heart'; h.textContent = '♥';
@@ -860,18 +844,20 @@ new IntersectionObserver(e => videoVisible = e[0].isIntersecting, {threshold:.2}
 const LOOP = 9000; // sem vídeo: ciclo de 9s
 function frame(now){
   if(videoVisible){
-    let p = (hasVideo && video.duration) ? video.currentTime / video.duration : (now % LOOP) / LOOP;
-    const e = ease(Math.min(p*1.25, 1)); // métricas completam um pouco antes do fim do vídeo
-    el('vViews').textContent  = fmt(V.views * e, 'mi');
-    el('vReach').textContent  = fmt(V.alcance * e, 'mi');
-    el('vPct').textContent    = fmt(V.naoSeguidores * e, 'pct');
-    el('vGrowth').textContent = fmt(V.crescimento * e, 'plus');
-    el('vLikes').textContent  = fmt(V.interacoes * e, 'k');
-    el('vRing').style.strokeDashoffset = 100 - V.naoSeguidores * e;
+    const p = (now % LOOP) / LOOP;
+    const e = ease(Math.min(p*1.25, 1)); // métricas completam um pouco antes do fim do ciclo
+    el('vViews').textContent  = nf.format(Math.round(V.views * e));
+    el('vReach').textContent  = nf.format(Math.round(V.espectadores * e));
+    el('vPer').textContent    = Math.round(V.views / V.espectadores * e);
+    el('vPct').textContent    = fmt(curtiu * e, 'pct');
+    el('vGrowth').textContent = fmt(V.seguidores * e, 'plus');
+    el('vLikes').textContent  = fmt(V.curtidas * e, 'k');
+    el('vComm').textContent   = fmt(V.comentarios * e, 'k');
+    el('vShare').textContent  = fmt(V.compartilhamentos * e, 'k');
+    el('vRing').style.strokeDashoffset = 100 - curtiu * e;
+    engRows.forEach((r,i) => { const v = ENG[i][1]; r.querySelector('b').textContent = fmt(v * e, 'k'); r.querySelector('i').style.setProperty('--w', engW(v) * e + '%'); });
     el('vProg').style.width = (p*100) + '%';
-    spark(e);
-    if(now - heartClock > 520 && (!hasVideo || !video.paused)){ heartClock = now; spawnHeart(); }
-    lastP = p;
+    if(now - heartClock > 520){ heartClock = now; spawnHeart(); }
   }
   requestAnimationFrame(frame);
 }
