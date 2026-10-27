@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Media Kit Amanda Freire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#13294B;
+  --navy-deep:#0B1A33;
+  --navy-soft:#2A426B;
+  --off:#F4EFE6;
+  --off-2:#EAE3D6;
+  --white:#FFFFFF;
+  --sand:#B9A27E;
+  --ink:#1B2433;
+  --muted:#6B7385;
+  --serif:'Playfair Display', Georgia, serif;
+  --sans:'Montserrat', system-ui, sans-serif;
+  --ease:cubic-bezier(.22,.8,.24,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (min-width:900px){ html{scroll-snap-type:y proximity} }
+body{background:var(--off);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+em{font-style:italic}
+
+/* ---------- estrutura ---------- */
+.slide{position:relative;min-height:100vh;padding:96px 6vw 80px;display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start;overflow:hidden}
+.navy{background:var(--navy);color:var(--off)}
+.deep{background:var(--navy-deep);color:var(--off)}
+.white{background:var(--white)}
+.wrap{width:100%;max-width:1240px;margin:0 auto;position:relative;z-index:2}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;font-weight:600;color:var(--sand);display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:36px;height:1px;background:currentColor}
+.h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.05;letter-spacing:-.01em;margin:18px 0 22px}
+.h2 em{color:var(--sand)}
+.navy .h2 em,.deep .h2 em{color:#D9C6A5}
+.lead{font-size:1.02rem;max-width:560px;color:var(--muted)}
+.navy .lead,.deep .lead{color:rgba(244,239,230,.72)}
+.ghost-num{position:absolute;right:4vw;top:6vh;font-family:var(--serif);font-size:clamp(6rem,16vw,14rem);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(19,41,75,.12);z-index:1;pointer-events:none}
+.navy .ghost-num,.deep .ghost-num{-webkit-text-stroke:1px rgba(244,239,230,.12)}
+
+/* topo + navegação */
+.topbar{position:fixed;inset:0 0 auto 0;height:64px;padding:0 4vw;display:flex;align-items:center;justify-content:space-between;z-index:50;mix-blend-mode:difference;color:#fff;pointer-events:none}
+.mono{font-family:var(--serif);font-size:1.35rem;letter-spacing:.06em}
+.mono span{font-style:italic}
+.counter{font-size:.72rem;letter-spacing:.28em;font-weight:500}
+.dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:50;mix-blend-mode:difference}
+.dots button{width:8px;height:8px;border-radius:50%;border:1px solid #fff;background:transparent;cursor:pointer;transition:all .4s var(--ease)}
+.dots button.on{background:#fff;height:26px;border-radius:6px}
+@media (max-width:700px){.dots{display:none}}
+
+/* revelar ao rolar */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.in .rv{opacity:1;transform:none}
+.in .d1{transition-delay:.12s}.in .d2{transition-delay:.24s}.in .d3{transition-delay:.36s}.in .d4{transition-delay:.48s}.in .d5{transition-delay:.6s}.in .d6{transition-delay:.72s}
+
+/* ---------- 1. capa ---------- */
+/* capa nova: foto completa + nome atrás da Amanda (camadas) */
+.hero{padding:0;height:100vh;min-height:620px;background:var(--navy-deep);color:var(--off)}
+.hero > *{position:absolute}
+.h-blur{inset:-60px;background:url(midia/amanda-10.jpg) center 30%/cover;filter:blur(30px) saturate(.85);transform:scale(1.08)}
+.h-stage{left:50%;bottom:0;height:100%;aspect-ratio:934/1280;transform:translateX(-50%)}
+.h-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.h-photo{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%)}
+.h-tint{inset:0;background:linear-gradient(180deg,rgba(11,26,51,.72) 0%,rgba(19,41,75,.5) 45%,rgba(11,26,51,.92) 100%)}
+.hero .h-name{left:0;right:0;top:13%;text-align:center;font-family:var(--serif);font-weight:700;font-size:max(4.2rem,min(25vw,36vh));line-height:.86;letter-spacing:-.035em;text-transform:uppercase;pointer-events:none;will-change:transform}
+.h-name span{display:block;background:linear-gradient(180deg,#FFFFFF 0%,#F4EFE6 55%,#C9B79C 100%);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transition:transform 1.6s var(--ease),opacity 1.6s var(--ease)}
+.h-name span:first-child{transform:translateX(-12vw)}
+.h-name span:last-child{transform:translateX(12vw);font-style:italic;font-weight:500;letter-spacing:-.02em}
+.in .h-name span{opacity:.95;transform:none}
+.h-cut{transition:transform 1.8s var(--ease),opacity 1.2s;opacity:0;transform:translate(-50%,40px)}
+.in .h-cut{opacity:1;transform:translate(-50%,0)}
+.h-cut img{filter:drop-shadow(0 30px 40px rgba(11,26,51,.45))}
+.h-fade{left:0;right:0;bottom:0;height:34%;background:linear-gradient(180deg,transparent,rgba(11,26,51,.85))}
+.h-top{top:84px;right:5vw;font-family:var(--sans);font-weight:600;font-size:clamp(1rem,2.4vw,2.2rem);letter-spacing:.04em;color:var(--white);text-align:right;line-height:1.1}
+.h-top small{display:block;font-weight:400;font-size:.7rem;letter-spacing:.32em;color:#D9C6A5;margin-top:10px}
+.h-bottom{left:5vw;bottom:96px;z-index:3}
+.h-bottom .role{font-size:clamp(.8rem,1.6vw,1.35rem);letter-spacing:.32em;font-weight:300;color:var(--white)}
+.h-bottom .eyebrow{margin-bottom:12px}
+.h-tags{right:5vw;bottom:96px;display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;max-width:42vw;z-index:3}
+.h-tags .tag{background:rgba(11,26,51,.35);backdrop-filter:blur(6px)}
+.spark-orn{color:#D9C6A5;font-size:clamp(2.2rem,5vw,4.4rem);line-height:1;animation:twinkle 6s ease-in-out infinite;z-index:3}
+.spark-orn.s1{left:6vw;top:16%}.spark-orn.s2{right:8vw;bottom:22%;font-size:clamp(1.4rem,3vw,2.6rem);animation-delay:-3s}
+@keyframes twinkle{0%,100%{transform:rotate(0) scale(1);opacity:.9}50%{transform:rotate(45deg) scale(.82);opacity:.55}}
+@media (max-width:860px){
+  .hero .h-name{top:20%}
+  .h-top{top:76px}
+  .h-tags{display:none}
+  .h-bottom{bottom:80px}
+}
+
+/* ---------- continuidade entre as seções ---------- */
+.slide:not(.hero){border-radius:48px 48px 0 0;margin-top:-48px;box-shadow:0 -34px 60px -34px rgba(11,26,51,.45)}
+@media (max-width:860px){.slide:not(.hero){border-radius:28px 28px 0 0;margin-top:-28px}}
+.band{position:relative;z-index:30;height:0}
+.band-strip{position:absolute;left:-6vw;right:-6vw;top:-60px;transform:rotate(-2.2deg);padding:16px 0;overflow:hidden;white-space:nowrap;box-shadow:0 18px 40px -20px rgba(11,26,51,.6)}
+.band.alt .band-strip{transform:rotate(1.8deg)}
+.band-strip.nv{background:var(--navy);color:var(--off)}
+.band-strip.of{background:var(--off);color:var(--navy)}
+.band-strip.sd{background:#D9C6A5;color:var(--navy-deep)}
+.band-track{display:inline-flex;gap:34px;align-items:center;font-family:var(--serif);font-size:clamp(1.1rem,2.2vw,1.8rem);will-change:transform}
+.band-track b{font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-family:var(--sans);font-size:.62em}
+.band-track i{opacity:.55;font-style:normal}
+.thread{position:fixed;left:26px;top:0;bottom:0;width:1px;background:rgba(255,255,255,.18);z-index:45;mix-blend-mode:difference;pointer-events:none}
+.thread i{position:absolute;left:0;top:0;width:1px;height:100%;background:#fff;transform-origin:top;transform:scaleY(0)}
+.thread b{position:absolute;left:-3px;width:7px;height:7px;border-radius:50%;background:#fff;top:0}
+@media (max-width:860px){.thread{display:none}}
+.next{position:absolute;right:6vw;bottom:72px;z-index:3;display:flex;align-items:center;gap:12px;font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;color:var(--muted);opacity:.85}
+.navy .next,.deep .next{color:rgba(244,239,230,.6)}
+.next em{font-family:var(--serif);font-style:italic;text-transform:none;letter-spacing:0;font-size:1.05rem;color:var(--navy)}
+.navy .next em,.deep .next em{color:#D9C6A5}
+.next span.arr{display:inline-block;animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateY(5px)}}
+@media (max-width:860px){.next{position:static;margin-top:36px;justify-content:flex-end}}
+.bookend{position:absolute;left:0;right:0;bottom:-2vw;font-family:var(--serif);font-weight:700;font-size:clamp(4rem,17vw,17rem);line-height:.8;text-transform:uppercase;letter-spacing:-.035em;color:transparent;-webkit-text-stroke:1px rgba(244,239,230,.12);white-space:nowrap;text-align:center;z-index:1;pointer-events:none}
+
+.hero-old{background:radial-gradient(120% 90% at 70% 40%, #1B3762 0%, var(--navy) 45%, var(--navy-deep) 100%);color:var(--off)}
+.hero-name-bg{position:absolute;left:-1vw;top:50%;transform:translateY(-50%);font-family:var(--serif);font-weight:700;font-size:clamp(5rem,19vw,19rem);line-height:.82;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1.2px rgba(244,239,230,.13);white-space:nowrap;z-index:1;animation:drift 22s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(-4vw,-50%)}}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:5vw;align-items:center}
+.hero-old h1{font-family:var(--serif);font-weight:500;font-size:clamp(3.2rem,8.4vw,7.6rem);line-height:.92;letter-spacing:-.02em;margin:22px 0 26px}
+.hero-old h1 em{display:block;font-weight:400;color:#D9C6A5;padding-left:.9em}
+.role{font-size:.86rem;letter-spacing:.42em;text-transform:uppercase;font-weight:300}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.tag{border:1px solid rgba(244,239,230,.3);border-radius:999px;padding:8px 18px;font-size:.78rem;letter-spacing:.08em}
+.arch-wrap{position:relative;justify-self:center;width:min(420px,80vw)}
+.arch{aspect-ratio:3/4;border-radius:999px 999px 18px 18px;overflow:hidden;border:1px solid rgba(244,239,230,.35);padding:10px;background:rgba(244,239,230,.04)}
+.arch img{width:100%;height:100%;object-fit:cover;border-radius:999px 999px 10px 10px;transform:scale(1.15);transition:transform 2.4s var(--ease)}
+.in .arch img{transform:scale(1)}
+.badge{position:absolute;left:-58px;bottom:56px;width:132px;height:132px;animation:spin 18s linear infinite}
+.badge text{font-family:var(--sans);font-size:10.4px;letter-spacing:3.2px;fill:var(--off);text-transform:uppercase;font-weight:500}
+@keyframes spin{to{transform:rotate(360deg)}}
+.badge-core{position:absolute;left:-58px;bottom:56px;width:132px;height:132px;display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-size:1.8rem;color:#D9C6A5;pointer-events:none}
+.scroll-hint{position:absolute;bottom:30px;left:6vw;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;opacity:.6;display:flex;align-items:center;gap:12px;z-index:3}
+.scroll-hint i{width:1px;height:38px;background:currentColor;display:block;position:relative;overflow:hidden}
+.scroll-hint i::after{content:"";position:absolute;inset:0;background:var(--sand);animation:drop 2s infinite}
+@keyframes drop{from{transform:translateY(-100%)}to{transform:translateY(100%)}}
+
+/* ---------- 2. sobre ---------- */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+.polas{position:relative;height:min(640px,78vh)}
+.pola{position:absolute;background:var(--white);padding:12px 12px 52px;box-shadow:0 30px 60px -28px rgba(11,26,51,.45);transition:transform 1.2s var(--ease),opacity 1.2s var(--ease)}
+.pola img{width:100%;height:100%;object-fit:cover}
+.pola figcaption{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:var(--serif);font-style:italic;color:var(--navy);font-size:1.05rem}
+.pola.a{width:58%;height:72%;left:0;top:0;transform:rotate(-12deg) translateY(40px);opacity:0}
+.pola.b{width:54%;height:66%;right:2%;bottom:0;transform:rotate(14deg) translateY(40px);opacity:0}
+.in .pola.a{transform:rotate(-5deg);opacity:1}
+.in .pola.b{transform:rotate(4deg);opacity:1;transition-delay:.25s}
+.pin{position:absolute;width:76px;height:22px;background:rgba(185,162,126,.55);top:-10px;left:50%;transform:translateX(-50%) rotate(-3deg)}
+.about p{color:var(--muted);margin-bottom:16px;max-width:540px}
+.quote{font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1.45;color:var(--navy);border-left:2px solid var(--sand);padding-left:22px;margin-top:28px;max-width:540px}
+
+/* ---------- 3. métricas ---------- */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(244,239,230,.18);border-bottom:1px solid rgba(244,239,230,.18);margin:34px 0 46px}
+.kpi{padding:30px 26px;border-right:1px solid rgba(244,239,230,.18)}
+.kpi:last-child{border-right:0}
+.kpi b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,4.6vw,4rem);line-height:1;color:var(--white)}
+.kpi span{display:block;margin-top:12px;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(244,239,230,.6)}
+.charts{display:grid;grid-template-columns:.9fr 1.3fr 1fr;gap:22px}
+.card{background:rgba(244,239,230,.05);border:1px solid rgba(244,239,230,.14);border-radius:20px;padding:26px}
+.card h4{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:#D9C6A5;margin-bottom:18px}
+.card small{display:block;font-size:.8rem;color:rgba(244,239,230,.6);margin-top:14px;line-height:1.5}
+.donut{position:relative;width:180px;height:180px;margin:6px auto 0}
+.donut svg{transform:rotate(-90deg)}
+.donut .track{stroke:rgba(244,239,230,.12)}
+.donut .val{stroke:var(--off);stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 2.2s var(--ease) .3s;stroke-linecap:round}
+.in .donut .val{stroke-dashoffset:5.8}
+.donut-c{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.donut-c b{font-family:var(--serif);font-size:2.3rem;font-weight:500;line-height:1}
+.donut-c i{display:block;font-style:normal;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;opacity:.65;margin-top:6px}
+.legend{display:flex;justify-content:center;gap:18px;margin-top:16px;font-size:.74rem;color:rgba(244,239,230,.7)}
+.legend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle;background:var(--off)}
+.legend span.b::before{background:rgba(244,239,230,.2)}
+.hbar{margin-bottom:20px}
+.hbar-top{display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:8px}
+.hbar-top b{font-family:var(--serif);font-size:1.15rem;font-weight:500}
+.hbar-track{height:12px;border-radius:999px;background:rgba(244,239,230,.08);overflow:hidden}
+.hbar-fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#8FA6CC,var(--off));transition:width 1.8s var(--ease)}
+.in .hbar-fill{width:var(--w)}
+.hbar:nth-child(3) .hbar-fill{transition-delay:.2s}.hbar:nth-child(4) .hbar-fill{transition-delay:.4s}
+.mult{display:flex;align-items:baseline;gap:10px;margin-top:6px}
+.mult b{font-family:var(--serif);font-size:2.4rem;font-weight:500;color:var(--white)}
+.cols{display:flex;align-items:flex-end;justify-content:center;gap:34px;height:170px;margin-top:6px;position:relative}
+.col{width:62px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.col .bar{width:100%;height:0;border-radius:10px 10px 4px 4px;background:rgba(244,239,230,.22);transition:height 1.8s var(--ease)}
+.col.now .bar{background:linear-gradient(180deg,var(--off),#8FA6CC)}
+.in .col .bar{height:var(--h)}
+.in .col.now .bar{transition-delay:.35s}
+.col em{font-style:normal;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;opacity:.65;margin-top:10px}
+.col strong{font-family:var(--serif);font-weight:500;font-size:1.05rem;margin-bottom:8px}
+.growth-pill{position:absolute;top:0;right:0;background:var(--off);color:var(--navy);font-weight:700;font-size:.78rem;padding:6px 12px;border-radius:999px;opacity:0;transform:translateY(10px);transition:all .8s var(--ease) 1.6s}
+.in .growth-pill{opacity:1;transform:none}
+.note{margin-top:28px;font-size:.74rem;color:rgba(244,239,230,.5)}
+
+/* ---------- 4. vídeo + métricas ---------- */
+.reel-stage{position:relative;display:grid;grid-template-columns:1fr auto 1fr;gap:4vw;align-items:center;margin-top:28px}
+.phone{position:relative;width:min(330px,74vw);aspect-ratio:9/19;border-radius:46px;background:var(--navy-deep);padding:12px;box-shadow:0 50px 90px -40px rgba(11,26,51,.65),0 0 0 1px rgba(19,41,75,.25);z-index:2}
+.phone::before{content:"";position:absolute;top:22px;left:50%;transform:translateX(-50%);width:92px;height:24px;border-radius:20px;background:#000;z-index:4}
+.screen{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:#000}
+.screen video,.screen .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph{display:none}
+.ph img{width:100%;height:100%;object-fit:cover;animation:kb 14s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.18) translate(-3%,-2%)}}
+.no-video .ph{display:block}
+.no-video video{display:none}
+.ph-cta{position:absolute;left:14px;right:14px;bottom:86px;text-align:center;color:#fff;z-index:3}
+.ph-cta label{display:inline-block;margin-top:8px;background:rgba(255,255,255,.92);color:var(--navy);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:9px 16px;border-radius:999px;cursor:pointer}
+.ph-cta p{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.ph-cta input{display:none}
+.ui{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.25) 0,transparent 18%,transparent 62%,rgba(0,0,0,.55) 100%)}
+.ui-side{position:absolute;right:12px;bottom:110px;display:flex;flex-direction:column;gap:18px;color:#fff;align-items:center;font-size:.62rem;font-weight:600}
+.ui-side svg{width:26px;height:26px}
+.ui-cap{position:absolute;left:16px;right:70px;bottom:26px;color:#fff;font-size:.74rem;line-height:1.4}
+.ui-cap b{display:block;font-size:.8rem;margin-bottom:4px}
+.ui-progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.25)}
+.ui-progress i{display:block;height:100%;width:0;background:#fff}
+.hearts{position:absolute;right:18px;bottom:150px;width:40px;height:300px;pointer-events:none;z-index:5}
+.heart{position:absolute;bottom:0;left:10px;font-size:18px;color:#fff;animation:float-up 2.6s var(--ease) forwards;opacity:0}
+@keyframes float-up{0%{opacity:0;transform:translate(0,0) scale(.6)}15%{opacity:1}100%{opacity:0;transform:translate(var(--x),-260px) scale(1.15)}}
+
+.fcol{display:flex;flex-direction:column;gap:22px}
+.fcol.l{align-items:flex-end}
+.fcard{background:var(--white);border-radius:20px;padding:20px 22px;width:min(270px,100%);box-shadow:0 26px 50px -30px rgba(11,26,51,.45);border:1px solid rgba(19,41,75,.06);animation:bob 6s ease-in-out infinite}
+.fcard:nth-child(2){animation-delay:-2s}.fcard:nth-child(3){animation-delay:-4s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.fcard h5{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px}
+.fcard .big{font-family:var(--serif);font-size:2.1rem;line-height:1;color:var(--navy);font-weight:500}
+.fcard .sub{font-size:.76rem;color:var(--muted);margin-top:8px}
+.spark{width:100%;height:44px;margin-top:10px}
+.spark path{fill:none;stroke:var(--navy);stroke-width:2}
+.spark .area{fill:rgba(19,41,75,.08);stroke:none}
+.mini-ring{display:flex;align-items:center;gap:16px}
+.mini-ring svg{width:66px;height:66px;transform:rotate(-90deg);flex:none}
+.mini-ring .t{stroke:var(--off-2)}
+.mini-ring .v{stroke:var(--navy);stroke-linecap:round;stroke-dasharray:100}
+.eq{display:flex;align-items:flex-end;gap:5px;height:42px;margin-top:10px}
+.eq i{flex:1;background:var(--navy);border-radius:3px;animation:eq 1.1s ease-in-out infinite;transform-origin:bottom}
+.eq i:nth-child(odd){background:var(--sand)}
+.eq i:nth-child(1){animation-delay:-.2s}.eq i:nth-child(2){animation-delay:-.5s}.eq i:nth-child(3){animation-delay:-.8s}.eq i:nth-child(4){animation-delay:-.1s}.eq i:nth-child(5){animation-delay:-.6s}.eq i:nth-child(6){animation-delay:-.35s}.eq i:nth-child(7){animation-delay:-.9s}
+@keyframes eq{0%,100%{height:22%}50%{height:100%}}
+.up{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:600;color:#2E7D5B;background:#E4F2EA;border-radius:999px;padding:4px 10px;margin-top:10px}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--navy)}
+.live::before{content:"";width:8px;height:8px;border-radius:50%;background:#D64545;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{opacity:.25}}
+
+/* ---------- 5. audiência ---------- */
+.aud{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:22px;margin-top:30px}
+.wcard{background:var(--white);border-radius:22px;padding:28px;border:1px solid rgba(19,41,75,.08);box-shadow:0 24px 50px -40px rgba(11,26,51,.5)}
+.wcard h4{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:20px}
+.split{display:flex;height:16px;border-radius:999px;overflow:hidden;background:var(--off-2)}
+.split i{display:block;height:100%;width:0;transition:width 1.8s var(--ease)}
+.split .f{background:var(--navy)}.split .m{background:var(--sand)}
+.split-lg{display:flex;justify-content:space-between;margin-top:18px}
+.split-lg b{display:block;font-family:var(--serif);font-size:2.2rem;font-weight:500;color:var(--navy);line-height:1}
+.split-lg span{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.vbars{display:flex;align-items:flex-end;gap:14px;height:200px;padding-top:24px}
+.vb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.vb .bar{width:100%;height:0;background:var(--off-2);border-radius:10px 10px 4px 4px;transition:height 1.6s var(--ease)}
+.vb.top .bar{background:var(--navy)}
+.vb strong{font-family:var(--serif);font-size:1rem;color:var(--navy);margin-bottom:8px;font-weight:500}
+.vb em{font-style:normal;font-size:.7rem;color:var(--muted);margin-top:10px;letter-spacing:.06em}
+.city{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:.84rem}
+.city span{width:118px;flex:none}
+.city .tr{flex:1;height:8px;border-radius:999px;background:var(--off-2);overflow:hidden}
+.city .tr i{display:block;height:100%;width:0;background:var(--navy);border-radius:999px;transition:width 1.6s var(--ease)}
+.city b{width:44px;text-align:right;font-weight:600;color:var(--navy)}
+.sample{display:inline-block;margin-left:10px;font-size:.6rem;letter-spacing:.14em;color:#9A5B1E;background:#FBEBD9;border:1px dashed #D9A66B;border-radius:6px;padding:3px 8px;vertical-align:middle}
+
+/* ---------- 6. pilares ---------- */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
+.pillar{position:relative;aspect-ratio:3/4.4;border-radius:200px 200px 22px 22px;overflow:hidden;cursor:default}
+.pillar img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.pillar::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(11,26,51,.92) 100%);transition:opacity .6s}
+.pillar:hover img{transform:scale(1.07)}
+.pillar .cap{position:absolute;left:22px;right:22px;bottom:22px;z-index:2;color:var(--off)}
+.pillar .cap span{font-size:.64rem;letter-spacing:.3em;opacity:.7}
+.pillar .cap h3{font-family:var(--serif);font-weight:500;font-size:1.7rem;line-height:1.1;margin:4px 0 0}
+.pillar .cap p{font-size:.8rem;line-height:1.5;opacity:.82;max-height:0;overflow:hidden;transition:max-height .7s var(--ease),margin .7s}
+.pillar:hover .cap p{max-height:120px;margin-top:10px}
+@media (hover:none){.pillar .cap p{max-height:120px;margin-top:10px}}
+
+/* ---------- 7. processo ---------- */
+.steps{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:56px}
+.steps::before{content:"";position:absolute;top:31px;left:8%;right:8%;height:1px;background:rgba(244,239,230,.15)}
+.steps::after{content:"";position:absolute;top:31px;left:8%;height:1px;width:0;background:var(--sand);transition:width 2.4s var(--ease) .3s}
+.in .steps::after{width:84%}
+.step{position:relative;text-align:center;z-index:2}
+.step .n{width:62px;height:62px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:1.5rem;background:var(--navy);border:1px solid rgba(244,239,230,.35);color:var(--off);transition:background .6s,color .6s,border-color .6s}
+.in .step .n{background:var(--off);color:var(--navy);border-color:var(--off)}
+.in .step:nth-child(1) .n{transition-delay:.4s}.in .step:nth-child(2) .n{transition-delay:.9s}.in .step:nth-child(3) .n{transition-delay:1.4s}.in .step:nth-child(4) .n{transition-delay:1.9s}.in .step:nth-child(5) .n{transition-delay:2.4s}
+.step h4{font-family:var(--serif);font-weight:500;font-size:1.2rem;margin-bottom:8px}
+.step p{font-size:.82rem;color:rgba(244,239,230,.62);line-height:1.55}
+.ribbon{margin-top:54px;text-align:center;font-family:var(--serif);font-style:italic;font-size:1.2rem;color:#D9C6A5}
+
+/* ---------- 8. investimento ---------- */
+.prices{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:34px}
+.price{position:relative;background:var(--white);border:1px solid rgba(19,41,75,.1);border-radius:22px;padding:28px 22px;display:flex;flex-direction:column;transition:transform .6s var(--ease),box-shadow .6s}
+.price:hover{transform:translateY(-8px);box-shadow:0 30px 60px -36px rgba(11,26,51,.55)}
+.price .lbl{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sand);font-weight:600}
+.price h3{font-family:var(--serif);font-weight:500;font-size:1.45rem;color:var(--navy);line-height:1.15;margin:10px 0 14px}
+.price p{font-size:.82rem;color:var(--muted);flex:1}
+.price .val{margin-top:24px;padding-top:18px;border-top:1px solid var(--off-2);font-family:var(--serif);color:var(--navy);font-size:2rem;font-weight:500}
+.price .val small{font-family:var(--sans);font-size:.72rem;color:var(--muted);margin-right:4px;vertical-align:top}
+.price.hl{background:var(--navy);border-color:var(--navy)}
+.price.hl h3,.price.hl .val{color:var(--white)}
+.price.hl p,.price.hl .val small{color:rgba(244,239,230,.7)}
+.price.hl .val{border-color:rgba(244,239,230,.18)}
+.price.hl .star{position:absolute;top:-12px;right:18px;background:var(--sand);color:var(--navy-deep);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:999px}
+.terms{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;margin-top:44px}
+.terms h4{font-family:var(--serif);font-weight:500;font-size:1.3rem;color:var(--navy);margin-bottom:10px}
+.terms p,.terms li{font-size:.88rem;color:var(--muted)}
+.terms ul{list-style:none}
+.terms li{padding:9px 0 9px 22px;border-bottom:1px solid var(--off-2);position:relative}
+.terms li::before{content:"";position:absolute;left:0;top:18px;width:10px;height:1px;background:var(--sand)}
+
+/* ---------- 9. contato ---------- */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:6vw;align-items:center}
+.contact .ph-frame{border-radius:24px;overflow:hidden;aspect-ratio:4/5;max-height:76vh;border:1px solid rgba(244,239,230,.2);padding:10px}
+.contact .ph-frame img{width:100%;height:100%;object-fit:cover;border-radius:16px}
+.contact h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.8rem,6vw,5.4rem);line-height:1;margin:18px 0 26px}
+.contact h2 em{color:#D9C6A5}
+.links{margin-top:34px;border-top:1px solid rgba(244,239,230,.18)}
+.links a{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid rgba(244,239,230,.18);color:var(--off);text-decoration:none;transition:padding .5s var(--ease),color .5s}
+.links a:hover{padding-left:12px;color:#D9C6A5}
+.links span{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;opacity:.6}
+.links b{font-weight:500;font-size:1.02rem}
+.sign{margin-top:40px;font-family:var(--serif);font-style:italic;font-size:2rem;color:#D9C6A5}
+
+/* ---------- responsivo ---------- */
+@media (max-width:1100px){
+  .charts{grid-template-columns:1fr 1fr}
+  .charts .card:nth-child(2){grid-column:1/-1;order:3}
+  .prices{grid-template-columns:repeat(3,1fr)}
+  .pillars{grid-template-columns:repeat(2,1fr)}
+  .aud{grid-template-columns:1fr 1fr}
+  .aud .wcard:nth-child(2){grid-column:1/-1}
+}
+@media (max-width:860px){
+  .slide{padding:90px 16px 64px}
+  .hero-grid,.about,.contact,.terms{grid-template-columns:1fr}
+  .hero-grid{gap:44px}
+  .arch-wrap{width:min(320px,78vw)}
+  .badge,.badge-core{left:-30px;width:104px;height:104px}
+  .polas{height:480px}
+  .kpis{grid-template-columns:1fr}
+  .kpi{border-right:0;border-bottom:1px solid rgba(244,239,230,.18);padding:22px 4px}
+  .kpi:last-child{border-bottom:0}
+  .charts,.aud{grid-template-columns:1fr}
+  .reel-stage{grid-template-columns:1fr;justify-items:center}
+  .fcol,.fcol.l{align-items:stretch;width:100%;max-width:360px}
+  .fcol.l{order:2}.phone{order:1}.fcol.r{order:3}
+  .fcard{width:100%}
+  .steps{grid-template-columns:1fr;gap:26px;text-align:left}
+  .steps::before,.steps::after{display:none}
+  .step{display:grid;grid-template-columns:62px 1fr;gap:18px;text-align:left;align-items:start}
+  .step .n{margin:0}
+  .prices,.pillars{grid-template-columns:1fr}
+  .pillar{aspect-ratio:4/4.6}
+  .ghost-num{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="mono">A<span>F</span></div>
+  <div class="counter" id="counter">01 / 09</div>
+</header>
+<nav class="dots" id="dots" aria-label="Navegação"></nav>
+<div class="thread" aria-hidden="true"><i id="threadFill"></i><b id="threadDot"></b></div>
+
+<!-- 1. CAPA -->
+<section class="slide hero" id="s-capa" data-title="Capa">
+  <!-- camadas: fundo desfocado · foto completa · véu azul · NOME · Amanda recortada por cima -->
+  <div class="h-blur" aria-hidden="true"></div>
+  <div class="h-stage"><img class="h-photo" src="midia/amanda-10.jpg" alt=""></div>
+  <div class="h-tint" aria-hidden="true"></div>
+  <h1 class="h-name" id="hName" aria-label="Amanda Freire"><span>Amanda</span><span>Freire</span></h1>
+  <div class="h-stage h-cut" id="hCut"><img src="midia/amanda-10-recorte.png" alt="Amanda Freire sorrindo"></div>
+  <div class="h-fade" aria-hidden="true"></div>
+  <div class="spark-orn s1" aria-hidden="true">✦</div>
+  <div class="spark-orn s2" aria-hidden="true">✦</div>
+  <div class="h-top rv d2">AMANDA FREIRE<small>Media Kit · 2026</small></div>
+  <div class="h-bottom rv d3">
+    <div class="eyebrow">Portfólio UGC</div>
+    <div class="role">Influencer &amp; UGC Creator</div>
+  </div>
+  <div class="h-tags rv d4"><span class="tag">Humor</span><span class="tag">Rotina</span><span class="tag">Maternidade</span><span class="tag">Empreendedora</span></div>
+</section>
+
+<div class="band" aria-hidden="true"><div class="band-strip sd"><div class="band-track" data-speed="1"></div></div></div>
+
+<!-- 2. SOBRE -->
+<section class="slide" id="s-sobre" data-title="Sobre">
+  <div class="ghost-num">02</div>
+  <div class="wrap about">
+    <div class="polas">
+      <figure class="pola a"><span class="pin"></span><img src="midia/amanda-7.jpg" alt=""><figcaption>leveza</figcaption></figure>
+      <figure class="pola b"><span class="pin"></span><img src="midia/amanda-9.jpg" alt=""><figcaption>espontaneidade</figcaption></figure>
+    </div>
+    <div>
+      <div class="eyebrow rv">Sobre a criadora</div>
+      <h2 class="h2 rv d1">Conteúdo com personalidade. <em>Conexão de verdade.</em></h2>
+      <p class="rv d2">Sou Amanda Freire, criadora de conteúdo e influenciadora digital, apaixonada por transformar momentos reais do dia a dia em conteúdos que geram identificação, conexão e boas histórias.</p>
+      <p class="rv d3">Compartilho minha rotina com leveza e espontaneidade, unindo humor, maternidade, família, empreendedorismo e lifestyle. Acredito que a influência vai muito além de números: está na capacidade de criar uma relação verdadeira com o público e apresentar marcas de forma natural, criativa e autêntica.</p>
+      <div class="quote rv d4">“Mais do que divulgar produtos, quero contar histórias, gerar conexão e agregar valor a cada parceria.”</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. MÉTRICAS -->
+<section class="slide navy" id="s-metricas" data-title="Métricas">
+  <div class="ghost-num">03</div>
+  <div class="wrap">
+    <div class="eyebrow rv">O que os dados mostram</div>
+    <h2 class="h2 rv d1">Alcance que vai <em>muito além</em> da base.</h2>
+    <div class="kpis rv d2">
+      <div class="kpi"><b data-count="5837" data-fmt="int">0</b><span>Seguidores</span></div>
+      <div class="kpi"><b data-count="2510000" data-fmt="mi">0</b><span>Visualizações em 30 dias</span></div>
+      <div class="kpi"><b data-count="3342" data-fmt="plus">0</b><span>Crescimento líquido em 30 dias</span></div>
+    </div>
+    <div class="charts">
+      <div class="card rv d3">
+        <h4>Origem das visualizações</h4>
+        <div class="donut">
+          <svg viewBox="0 0 42 42" width="180" height="180"><circle class="track" cx="21" cy="21" r="16" fill="none" stroke-width="4.2"/><circle class="val" cx="21" cy="21" r="16" fill="none" stroke-width="4.2" pathLength="100"/></svg>
+          <div class="donut-c"><div><b data-count="94.2" data-fmt="pct">0</b><i>não seguidores</i></div></div>
+        </div>
+        <div class="legend"><span>Não seguidores</span><span class="b">Seguidores 5,8%</span></div>
+      </div>
+      <div class="card rv d4">
+        <h4>Base × alcance em 30 dias</h4>
+        <div class="hbar"><div class="hbar-top"><span>Seguidores</span><b>5.837</b></div><div class="hbar-track"><div class="hbar-fill" style="--w:1.2%"></div></div></div>
+        <div class="hbar"><div class="hbar-top"><span>Espectadores únicos</span><b>≈ 1,70 mi</b></div><div class="hbar-track"><div class="hbar-fill" style="--w:67.7%"></div></div></div>
+        <div class="hbar"><div class="hbar-top"><span>Visualizações</span><b>2,51 mi</b></div><div class="hbar-track"><div class="hbar-fill" style="--w:100%"></div></div></div>
+        <div class="mult"><b data-count="430" data-fmt="x">0</b><span style="opacity:.7;font-size:.86rem">mais visualizações do que seguidores</span></div>
+      </div>
+      <div class="card rv d5">
+        <h4>Crescimento da base</h4>
+        <div class="cols">
+          <span class="growth-pill">+3.342</span>
+          <div class="col"><strong>2.495</strong><div class="bar" style="--h:42%"></div><em>Há 30 dias</em></div>
+          <div class="col now"><strong>5.837</strong><div class="bar" style="--h:100%"></div><em>Hoje</em></div>
+        </div>
+        <small>57% da base atual chegou nos últimos 30 dias. Principal formato de alcance: <b style="color:var(--off)">Reels</b>.</small>
+      </div>
+    </div>
+    <p class="note">Os números refletem os Insights enviados pela criadora e podem variar com o tempo.</p>
+  </div>
+</section>
+
+<!-- 4. VÍDEO + MÉTRICAS -->
+<div class="band alt" aria-hidden="true"><div class="band-strip of"><div class="band-track" data-speed="-1"></div></div></div>
+
+<section class="slide white" id="s-video" data-title="Em movimento">
+  <div class="ghost-num">04</div>
+  <div class="wrap">
+    <div class="eyebrow rv">Em movimento</div>
+    <h2 class="h2 rv d1" style="max-width:760px">Cada Reel é uma <em>porta de entrada</em> para novos públicos.</h2>
+    <div class="reel-stage">
+      <div class="fcol l">
+        <div class="fcard rv d2">
+          <h5>Visualizações · 30 dias</h5>
+          <div class="big" id="vViews">0</div>
+          <svg class="spark" viewBox="0 0 200 44" preserveAspectRatio="none"><path class="area" id="vArea" d=""/><path id="vLine" d=""/></svg>
+        </div>
+        <div class="fcard rv d3">
+          <h5>Espectadores únicos</h5>
+          <div class="big" id="vReach">0</div>
+          <div class="sub">pessoas alcançadas em 30 dias</div>
+        </div>
+      </div>
+
+      <div class="phone rv d2">
+        <div class="screen no-video" id="screen">
+          <!-- VÍDEO: coloque o arquivo em midia/video.mp4 (vertical 9:16). Ele toca sem som e em loop. -->
+          <video id="reel" src="midia/video.mp4" muted autoplay loop playsinline preload="auto"></video>
+          <div class="ph">
+            <img src="midia/amanda-11.jpg" alt="">
+            <div class="ph-cta">
+              <p>Espaço para vídeo · 9:16</p>
+              <label>Escolher vídeo<input type="file" accept="video/*" id="pick"></label>
+            </div>
+          </div>
+          <div class="ui">
+            <div class="ui-side">
+              <div><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.5 3 5 6.4 5c2 0 3.4 1.1 4.1 2.3h3C14.2 6.1 15.6 5 17.6 5 21 5 23.1 8.5 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg><div id="vLikes">0</div></div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 3 11 14M22 3l-7 19-4-8-8-4 19-7z"/></svg></div>
+            </div>
+            <div class="ui-cap"><b>Amanda Freire</b>humor, rotina e a vida real de mãe empreendedora ✦</div>
+            <div class="ui-progress"><i id="vProg"></i></div>
+          </div>
+          <div class="hearts" id="hearts"></div>
+        </div>
+      </div>
+
+      <div class="fcol r">
+        <div class="fcard rv d3">
+          <h5>Alcance fora da base</h5>
+          <div class="mini-ring">
+            <svg viewBox="0 0 42 42"><circle class="t" cx="21" cy="21" r="16" fill="none" stroke-width="5"/><circle class="v" id="vRing" cx="21" cy="21" r="16" fill="none" stroke-width="5" pathLength="100" stroke-dashoffset="100"/></svg>
+            <div><div class="big" id="vPct">0%</div><div class="sub">das views vêm de não seguidores</div></div>
+          </div>
+        </div>
+        <div class="fcard rv d4">
+          <h5>Formato campeão</h5>
+          <div class="live">Reels</div>
+          <div class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="fcard rv d5">
+          <h5>Novos seguidores</h5>
+          <div class="big" id="vGrowth">+0</div>
+          <span class="up">▲ em 30 dias</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. AUDIÊNCIA -->
+<section class="slide" id="s-audiencia" data-title="Audiência">
+  <div class="ghost-num">05</div>
+  <div class="wrap">
+    <div class="eyebrow rv">Temas &amp; audiência</div>
+    <h2 class="h2 rv d1">Quem se <em>identifica</em> com a Amanda.</h2>
+    <p class="lead rv d2">Humor e situações cotidianas · Maternidade e família · Rotina e lifestyle · Empreendedorismo · Experiências e recomendações de produtos e serviços.</p>
+    <div class="aud">
+      <div class="wcard rv d3">
+        <h4>Gênero <span class="sample" data-sample>Dados de exemplo</span></h4>
+        <div class="split"><i class="f" id="gF"></i><i class="m" id="gM"></i></div>
+        <div class="split-lg">
+          <div><b data-count="0" id="gFt" data-fmt="pct0">0</b><span>Mulheres</span></div>
+          <div style="text-align:right"><b data-count="0" id="gMt" data-fmt="pct0">0</b><span>Homens</span></div>
+        </div>
+      </div>
+      <div class="wcard rv d4">
+        <h4>Faixa etária <span class="sample" data-sample>Dados de exemplo</span></h4>
+        <div class="vbars" id="ages"></div>
+      </div>
+      <div class="wcard rv d5">
+        <h4>Principais cidades <span class="sample" data-sample>Dados de exemplo</span></h4>
+        <div id="cities"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PILARES -->
+<div class="band" aria-hidden="true"><div class="band-strip nv"><div class="band-track" data-speed="1"></div></div></div>
+
+<section class="slide navy" id="s-pilares" data-title="Pilares">
+  <div class="ghost-num">06</div>
+  <div class="wrap">
+    <div class="eyebrow rv">Pilares de conteúdo</div>
+    <h2 class="h2 rv d1">A vida real, <em>com leveza.</em></h2>
+    <div class="pillars">
+      <div class="pillar rv d2"><img src="midia/amanda-11.jpg" alt=""><div class="cap"><span>01</span><h3>Humor</h3><p>Situações do cotidiano que todo mundo já viveu, contadas com espontaneidade e bom humor.</p></div></div>
+      <div class="pillar rv d3"><img src="midia/amanda-9.jpg" alt=""><div class="cap"><span>02</span><h3>Rotina</h3><p>O dia a dia sem filtro: casa, organização, autocuidado e lifestyle.</p></div></div>
+      <div class="pillar rv d4"><img src="midia/amanda-7.jpg" alt=""><div class="cap"><span>03</span><h3>Maternidade</h3><p>Família, afeto e os desafios reais de ser mãe, com conteúdo que gera identificação.</p></div></div>
+      <div class="pillar rv d5"><img src="midia/amanda-12.jpg" alt=""><div class="cap"><span>04</span><h3>Empreendedora</h3><p>Bastidores de quem concilia negócios, criação de conteúdo e vida pessoal.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. PROCESSO -->
+<section class="slide deep" id="s-processo" data-title="Processo criativo">
+  <div class="ghost-num">07</div>
+  <div class="wrap">
+    <div class="eyebrow rv">Como trabalhamos juntos</div>
+    <h2 class="h2 rv d1">Processo <em>criativo</em></h2>
+    <div class="steps">
+      <div class="step rv d1"><div class="n">1</div><div><h4>Alinhamento</h4><p>Conversa sobre objetivos, público e formato ideal para a marca.</p></div></div>
+      <div class="step rv d2"><div class="n">2</div><div><h4>Briefing &amp; contrato</h4><p>Definição de entregas, prazos, data de publicação e envio de produtos (se houver).</p></div></div>
+      <div class="step rv d3"><div class="n">3</div><div><h4>Produção</h4><p>Roteiro e gravação com a linguagem natural e próxima da Amanda.</p></div></div>
+      <div class="step rv d4"><div class="n">4</div><div><h4>Aprovação</h4><p>Envio do material para aprovação e ajustes, se necessário.</p></div></div>
+      <div class="step rv d5"><div class="n">5</div><div><h4>Publicação</h4><p>Conteúdo no ar e envio de feedback com os resultados.</p></div></div>
+    </div>
+    <p class="ribbon rv d6">Briefing, prazo de entrega e data de publicação são alinhados antes da confirmação da parceria.</p>
+  </div>
+</section>
+
+<!-- 8. INVESTIMENTO -->
+<section class="slide" id="s-investimento" data-title="Investimento">
+  <div class="ghost-num">08</div>
+  <div class="wrap">
+    <div class="eyebrow rv">Formatos &amp; investimento</div>
+    <h2 class="h2 rv d1">Escolha o formato <em>ideal</em> para sua marca.</h2>
+    <div class="prices">
+      <div class="price rv d1"><span class="lbl">Stories</span><h3>Stories Essencial</h3><p>Sequência de 5 stories com apresentação, contexto e chamada para ação.</p><div class="val"><small>R$</small>150</div></div>
+      <div class="price rv d2"><span class="lbl">Stories</span><h3>Stories Completo</h3><p>Sequência de 7 stories, com mais espaço para demonstração e interação.</p><div class="val"><small>R$</small>180</div></div>
+      <div class="price rv d3"><span class="lbl">Combo</span><h3>Combo Presença</h3><p>5 stories + 1 foto no feed.</p><div class="val"><small>R$</small>280</div></div>
+      <div class="price rv d4"><span class="lbl">Combo</span><h3>Combo Vídeo</h3><p>1 Reel + 3 stories de apoio.</p><div class="val"><small>R$</small>450</div></div>
+      <div class="price hl rv d5"><span class="star">Mais completo</span><span class="lbl">Campanha</span><h3>Campanha Destaque</h3><p>1 Reel + 5 stories + 1 foto no feed.</p><div class="val"><small>R$</small>550</div></div>
+    </div>
+    <div class="terms">
+      <div class="rv d2">
+        <h4>UGC e projetos personalizados</h4>
+        <p>Vídeos para uso nos canais da marca, pacotes mensais, campanhas de lançamento e ações presenciais são orçados conforme escopo, prazo, quantidade de peças e direitos de uso.</p>
+      </div>
+      <div class="rv d3">
+        <h4>Condições comerciais</h4>
+        <ul>
+          <li>Valores de referência para entregas orgânicas no perfil.</li>
+          <li>Deslocamento, exclusividade, impulsionamento/anúncios e cessão de uso de imagem por prazo estendido são negociados separadamente.</li>
+          <li>Briefing, prazo de entrega e data de publicação são alinhados antes da confirmação da parceria.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. CONTATO -->
+<div class="band alt" aria-hidden="true"><div class="band-strip sd"><div class="band-track" data-speed="-1"></div></div></div>
+
+<section class="slide navy" id="s-contato" data-title="Contato">
+  <div class="bookend" id="bookend" aria-hidden="true">Amanda Freire</div>
+  <div class="wrap contact">
+    <div class="ph-frame rv"><img src="midia/amanda-13.jpg" alt="Amanda Freire"></div>
+    <div>
+      <div class="eyebrow rv d1">Vamos conversar</div>
+      <h2 class="rv d2">Vamos criar <em>juntos?</em></h2>
+      <p class="lead rv d3">Parcerias que fazem sentido para a comunidade, com histórias que aproximam marcas de pessoas.</p>
+      <div class="links rv d4" id="links"></div>
+      <div class="sign rv d5">Amanda Freire</div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* =========================================================
+   EDITE AQUI — dados da apresentação
+   ========================================================= */
+const CONFIG = {
+  contato: [
+    // troque pelos contatos reais da Amanda
+    { rotulo:'Instagram', texto:'@instagram_da_amanda', link:'https://instagram.com/' },
+    { rotulo:'WhatsApp',  texto:'(00) 00000-0000',      link:'https://wa.me/5500000000000' },
+    { rotulo:'E-mail',    texto:'contato@email.com',    link:'mailto:contato@email.com' }
+  ],
+  audiencia: {
+    exemplo: true, // mude para false quando colocar os números reais (remove a etiqueta "Dados de exemplo")
+    mulheres: 82, homens: 18,
+    idades: [ ['13-17',3], ['18-24',15], ['25-34',44], ['35-44',26], ['45-54',9], ['55+',3] ],
+    cidades: [ ['São Paulo',11.2], ['Rio de Janeiro',5.4], ['Belo Horizonte',3.1], ['Fortaleza',2.6], ['Salvador',2.2] ]
+  },
+  video: { views:2510000, alcance:1700000, naoSeguidores:94.2, crescimento:3342, curtidas:48200 }
+};
+
+/* ---------- formatação ---------- */
+const nf = new Intl.NumberFormat('pt-BR');
+function fmt(v, t){
+  switch(t){
+    case 'mi':   return (v/1e6).toFixed(2).replace('.',',') + ' mi';
+    case 'plus': return '+' + nf.format(Math.round(v));
+    case 'pct':  return v.toFixed(1).replace('.',',') + '%';
+    case 'pct0': return Math.round(v) + '%';
+    case 'x':    return Math.round(v) + '×';
+    case 'k':    return v >= 1000 ? (v/1000).toFixed(1).replace('.',',') + ' mil' : Math.round(v);
+    default:     return nf.format(Math.round(v));
+  }
+}
+const ease = p => 1 - Math.pow(1 - p, 3);
+function countUp(el, dur=2000){
+  const target = parseFloat(el.dataset.count), t0 = performance.now();
+  (function tick(now){
+    const p = Math.min((now - t0)/dur, 1);
+    el.textContent = fmt(target * ease(p), el.dataset.fmt);
+    if(p < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+
+/* ---------- audiência ---------- */
+const A = CONFIG.audiencia;
+if(!A.exemplo) document.querySelectorAll('[data-sample]').forEach(e => e.remove());
+document.getElementById('gFt').dataset.count = A.mulheres;
+document.getElementById('gMt').dataset.count = A.homens;
+const maxAge = Math.max(...A.idades.map(a => a[1]));
+document.getElementById('ages').innerHTML = A.idades.map(([l,v]) =>
+  `<div class="vb ${v===maxAge?'top':''}"><strong>${v}%</strong><div class="bar" data-h="${v/maxAge*100}%"></div><em>${l}</em></div>`).join('');
+const maxCity = Math.max(...A.cidades.map(c => c[1]));
+document.getElementById('cities').innerHTML = A.cidades.map(([l,v]) =>
+  `<div class="city"><span>${l}</span><div class="tr"><i data-w="${v/maxCity*100}%"></i></div><b>${String(v).replace('.',',')}%</b></div>`).join('');
+
+// números já aparecem completos antes da animação
+document.querySelectorAll('[data-count]').forEach(e => e.textContent = fmt(parseFloat(e.dataset.count), e.dataset.fmt));
+
+/* ---------- contatos ---------- */
+document.getElementById('links').innerHTML = CONFIG.contato.map(c =>
+  `<a href="${c.link}" target="_blank" rel="noopener"><span>${c.rotulo}</span><b>${c.texto}</b></a>`).join('');
+
+/* ---------- navegação ---------- */
+const slides = [...document.querySelectorAll('.slide')];
+const dots = document.getElementById('dots');
+const counter = document.getElementById('counter');
+slides.forEach((s,i) => {
+  const b = document.createElement('button');
+  b.setAttribute('aria-label', 'Ir para seção ' + (i+1));
+  b.onclick = () => s.scrollIntoView({behavior:'smooth'});
+  dots.appendChild(b);
+});
+let current = 0;
+function setCurrent(i){
+  current = i;
+  counter.textContent = String(i+1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0');
+  [...dots.children].forEach((d,k) => d.classList.toggle('on', k===i));
+}
+setCurrent(0);
+document.addEventListener('keydown', e => {
+  if(['ArrowDown','PageDown'].includes(e.key)){ e.preventDefault(); slides[Math.min(current+1, slides.length-1)].scrollIntoView({behavior:'smooth'}); }
+  if(['ArrowUp','PageUp'].includes(e.key)){ e.preventDefault(); slides[Math.max(current-1, 0)].scrollIntoView({behavior:'smooth'}); }
+});
+
+/* ---------- animações ao entrar na tela ---------- */
+const seen = new Set();
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    const s = en.target;
+    if(en.isIntersecting && en.intersectionRatio > .25){
+      setCurrent(slides.indexOf(s));
+      if(seen.has(s)) return;
+      seen.add(s);
+      s.classList.add('in');
+      s.querySelectorAll('[data-count]').forEach(el => countUp(el));
+      if(s.id === 's-audiencia') setTimeout(() => {
+        document.getElementById('gF').style.width = A.mulheres + '%';
+        document.getElementById('gM').style.width = A.homens + '%';
+        s.querySelectorAll('.vb .bar').forEach((b,i) => setTimeout(() => b.style.height = b.dataset.h, i*90));
+        s.querySelectorAll('.city i').forEach((b,i) => setTimeout(() => b.style.width = b.dataset.w, i*110));
+      }, 350);
+    }
+  });
+}, {threshold:[.25,.5]});
+slides.forEach(s => io.observe(s));
+// segurança: depois de um instante, todo o conteúdo fica visível mesmo fora da tela
+setTimeout(() => slides.forEach(s => s.classList.add('in')), 2500);
+
+/* ---------- vídeo + métricas sincronizadas ---------- */
+const V = CONFIG.video;
+const video = document.getElementById('reel');
+const screen = document.getElementById('screen');
+const el = id => document.getElementById(id);
+let hasVideo = false, lastP = 0;
+
+video.addEventListener('loadeddata', () => { hasVideo = true; screen.classList.remove('no-video'); video.play().catch(()=>{}); });
+video.addEventListener('error', () => { hasVideo = false; screen.classList.add('no-video'); });
+el('pick').addEventListener('change', e => {
+  const f = e.target.files[0]; if(!f) return;
+  video.src = URL.createObjectURL(f); video.muted = true; video.load();
+});
+
+// curva da sparkline (formato ilustrativo de crescimento acumulado)
+const pts = Array.from({length:30}, (_,i) => { const x = i/29; return Math.pow(x,1.6) + Math.sin(i*1.3)*.025; });
+function spark(p){
+  const n = Math.max(2, Math.round(p*29)+1);
+  const s = pts.slice(0,n).map((y,i) => [i/29*200, 42 - Math.max(0,Math.min(1,y))*38]);
+  const line = 'M' + s.map(q => q.map(v=>v.toFixed(1)).join(',')).join(' L');
+  el('vLine').setAttribute('d', line);
+  el('vArea').setAttribute('d', line + ` L${s[s.length-1][0].toFixed(1)},44 L0,44 Z`);
+}
+function spawnHeart(){
+  const h = document.createElement('span');
+  h.className = 'heart'; h.textContent = '♥';
+  h.style.setProperty('--x', (Math.random()*40-28) + 'px');
+  h.style.fontSize = (14 + Math.random()*12) + 'px';
+  el('hearts').appendChild(h);
+  setTimeout(() => h.remove(), 2700);
+}
+let heartClock = 0, videoVisible = false;
+new IntersectionObserver(e => videoVisible = e[0].isIntersecting, {threshold:.2}).observe(el('s-video'));
+
+const LOOP = 9000; // sem vídeo: ciclo de 9s
+function frame(now){
+  if(videoVisible){
+    let p = (hasVideo && video.duration) ? video.currentTime / video.duration : (now % LOOP) / LOOP;
+    const e = ease(Math.min(p*1.25, 1)); // métricas completam um pouco antes do fim do vídeo
+    el('vViews').textContent  = fmt(V.views * e, 'mi');
+    el('vReach').textContent  = fmt(V.alcance * e, 'mi');
+    el('vPct').textContent    = fmt(V.naoSeguidores * e, 'pct');
+    el('vGrowth').textContent = fmt(V.crescimento * e, 'plus');
+    el('vLikes').textContent  = fmt(V.curtidas * e, 'k');
+    el('vRing').style.strokeDashoffset = 100 - V.naoSeguidores * e;
+    el('vProg').style.width = (p*100) + '%';
+    spark(e);
+    if(now - heartClock > 520 && (!hasVideo || !video.paused)){ heartClock = now; spawnHeart(); }
+    lastP = p;
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+/* ---------- continuidade: faixas, fio condutor, "próximo", parallax ---------- */
+requestAnimationFrame(() => slides[0].classList.add('in'));
+
+const WORDS = ['Humor','Rotina','Maternidade','Empreendedora','Lifestyle','Conexão real'];
+document.querySelectorAll('.band-track').forEach(t => {
+  const one = WORDS.map(w => `<b>${w}</b><i>✦</i><span><em>Amanda Freire</em></span><i>✦</i>`).join('');
+  t.innerHTML = one + one + one;
+});
+
+// "Próximo capítulo" no rodapé de cada seção
+slides.forEach((s,i) => {
+  const nx = slides[i+1]; if(!nx || i === 0) return;
+  const a = document.createElement('a');
+  a.className = 'next'; a.href = '#' + nx.id;
+  a.innerHTML = `${String(i+2).padStart(2,'0')} · <em>${nx.dataset.title}</em> <span class="arr">↓</span>`;
+  a.onclick = e => { e.preventDefault(); nx.scrollIntoView({behavior:'smooth'}); };
+  s.appendChild(a);
+});
+
+const tracks = [...document.querySelectorAll('.band-track')];
+const hName = el('hName'), hCut = el('hCut'), bookend = el('bookend');
+const ghosts = [...document.querySelectorAll('.ghost-num')];
+let lastY = scrollY, vel = 0, offset = 0;
+function onFrame(){
+  const y = scrollY, max = document.documentElement.scrollHeight - innerHeight;
+  vel += ((y - lastY) - vel) * .12; lastY = y;
+  offset += 0.6 + Math.abs(vel) * .5;            // anda sozinho e acelera com a rolagem
+  tracks.forEach(t => {
+    const w = t.scrollWidth / 3, dir = +t.dataset.speed;
+    const x = ((offset % w) + w) % w;
+    t.style.transform = `translateX(${dir > 0 ? -x : x - w}px)`;
+  });
+  const p = max > 0 ? y / max : 0;                 // fio condutor
+  el('threadFill').style.transform = `scaleY(${p})`;
+  el('threadDot').style.top = `calc(${p * 100}% - 3px)`;
+  if(y < innerHeight * 1.2){                        // capa: nome e Amanda em velocidades diferentes
+    hName.style.transform = `translateY(${y * .45}px)`;
+    if(slides[0].classList.contains('in')) hCut.style.transform = `translate(-50%, ${y * .12}px)`;
+  }
+  ghosts.forEach(g => {                             // números gigantes deslizam ao rolar
+    const r = g.parentElement.getBoundingClientRect();
+    g.style.transform = `translateY(${-r.top * .18}px)`;
+  });
+  if(bookend){
+    const r = bookend.parentElement.getBoundingClientRect();
+    bookend.style.transform = `translateX(${(r.top) * .25}px)`;
+  }
+  requestAnimationFrame(onFrame);
+}
+requestAnimationFrame(onFrame);
+</script>
+</body>
+</html>
