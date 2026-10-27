@@ -397,10 +397,6 @@ em{font-style:italic}
 </head>
 <body>
 
-<header class="topbar">
-  <div class="mono">A<span>F</span></div>
-  <div class="counter" id="counter">01 / 09</div>
-</header>
 <nav class="dots" id="dots" aria-label="Navegação"></nav>
 <div class="thread" aria-hidden="true"><i id="threadFill"></i><b id="threadDot"></b></div>
 
@@ -793,7 +789,7 @@ slides.forEach((s,i) => {
 let current = 0;
 function setCurrent(i){
   current = i;
-  counter.textContent = String(i+1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0');
+  if (counter) counter.textContent =String(i+1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0');
   [...dots.children].forEach((d,k) => d.classList.toggle('on', k===i));
 }
 setCurrent(0);
