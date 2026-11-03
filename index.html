@@ -493,7 +493,7 @@ em{font-style:italic}
         <div class="hbar"><div class="hbar-top"><span>Stories</span><b>139 mil</b></div><div class="hbar-track"><div class="hbar-fill" style="--w:4%"></div></div></div>
         <div class="hbar"><div class="hbar-top"><span>Posts</span><b>15 mil</b></div><div class="hbar-track"><div class="hbar-fill" style="--w:1%"></div></div></div>
         <div class="minis">
-          <div><b>11,3 mi</b><span>views no Reels de maior alcance</span></div>
+          <div><b>11,4 mi</b><span>views no Reels de maior alcance</span></div>
           <div><b>11 mil</b><span>visitas ao perfil em 30 dias</span></div>
         </div>
       </div>
@@ -709,8 +709,8 @@ const CONFIG = {
     idiomas: [ ['Português',63.6], ['Inglês',26.8], ['Francês',2.5], ['Tcheco',1.9], ['Árabe',1.5] ]
   },
   // Insights do Reels campeão
-  campeao: { views:9259264, espectadores:1314155, seguidores:1247, tempoMedio:9,
-    curtidas:548000, comentarios:3200, reposts:5200, compartilhamentos:115000, salvamentos:5800 },
+  campeao: { views:11369938, espectadores:1781741, seguidores:1664, tempoMedio:9,
+    curtidas:687000, comentarios:4000, reposts:7200, compartilhamentos:143000, salvamentos:7600 },
   // visualizações por dia, em mil (traçadas a partir do gráfico dos Insights; picos de 791 mil e 440 mil)
   diario: [10,10,70,791,60,90,130,55,50,75,60,55,50,45,55,25,45,40,90,140,440,60,50,45,30,75,360,280,190,160]
 };
@@ -724,7 +724,7 @@ function fmt(v, t){
     case 'pct':  return v.toFixed(1).replace('.',',') + '%';
     case 'pct0': return Math.round(v) + '%';
     case 'x':    return Math.round(v) + '×';
-    case 'k':    return v >= 100000 ? Math.round(v/1000) + ' mil' : v >= 1000 ? (v/1000).toFixed(1).replace('.',',') + ' mil' : Math.round(v);
+    case 'k':    return v >= 100000 ? Math.round(v/1000) + ' mil' : v >= 1000 ? (v/1000).toFixed(1).replace('.0','').replace('.',',') + ' mil' : Math.round(v);
     default:     return nf.format(Math.round(v));
   }
 }
